@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+{% block content %}
+<style>
+h3 , div, p {padding: 13px}
+h1 {background-color: rgb(208, 209, 246);
+color: black; text-align:  center;}
+.main{
+    text-align: center;}
+</style>
+<div class="main">
+    <div class="p-4 p-md-5 mb-4 rounded text-bg-dark" >
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic">My blog post</h1>
+        <p class="lead my-3">"If you can see it, you can shoot it." ...
+            “Photographers don't take pictures. ...</p>      
+      </div>
+    </div>
+  <!--in this part we are trying to save all the table that the admin created in this html page
+    and since the admin will post thing everytime we use for loop  (post.all)== that stored iin post please return all thing <tim, title, text>-->
+  {%for x in post.all %}
+  <!--now when you see this {{x.somthing}} === this mean the valu that the admin post it we make the input dynamic 
+    insted of static, so admin can add whatever she/he want and it is displayed automatic in html page-->
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <div class= " text-align: center padding 500px row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+            <h3 class="mb-0">{{x.title}}</h3>
+            <div class="mb-1 text-body-secondary">{{x.date}}</div>
+            <p class="card-text mb-auto">{{x.text}}</p>
+       
+          </div> 
+        </div>
+      
+    </div> <!--ehole code-->
+    {% endfor %} <!--to end the for loop *most to use-->
+
+{% endblock %}
